@@ -101,9 +101,32 @@ def iniciar_desafio(request):
         return redirect(f'/flashcard/desafio/{desafio.id}')
     
 def listar_desafio(request):
-    desafios = Desafio.objects.filter(user=request.user)
-    # TODO: desenvolver os status e filtros
-    return render(request, 'listar_desafio.html', {'desafios': desafios,},)
+    if request.method == 'GET':
+        categorias = Categoria.objects.all()
+        dificuldades = Flashcard.DIFICULDADE_CHOICES
+        desafios = Desafio.objects.filter(user=request.user)
+
+        # Recebe os valores dos parâmetros
+        categoria_filtrar = request.GET.get('categoria')
+        dificuldade_filtrar = request.GET.get('dificuldade')
+
+        if categoria_filtrar:
+            desafios = desafios.filter(categoria__id=categoria_filtrar) # categoria__id porque é uma ForeignKey
+
+        if dificuldade_filtrar:
+            desafios = desafios.filter(dificuldade=dificuldade_filtrar)
+
+        # Atualiza o status dos desafios
+        for desafio in desafios:
+            desafios_faltantes = desafio.flashcards.filter(respondido=False).count()
+            if desafios_faltantes == 0:
+                desafio.status = 'C'
+            else:
+                desafio.status = 'E'
+            desafio.save()
+
+        return render(request, 'listar_desafio.html', {'categorias': categorias, 'dificuldades': dificuldades, 'desafios': desafios})
+
 
 
 def desafio(request, id):

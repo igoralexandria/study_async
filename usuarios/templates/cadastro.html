@@ -14,7 +14,7 @@
             <div class="col-md">
                 <div class="box-titulo">
                     <div class="box-titulo-item">
-                        <img src="{% static 'usuarios/img/logo.png' %}">
+                        <a href="{% url 'welcome' %}"><img src="{% static 'usuarios/img/logo.png' %}"></a>
                     </div>
                     <div style="margin-top: auto; margin-bottom: auto;" class="box-titulo-item">
                         <h3>Study.Async</h3>
@@ -47,18 +47,18 @@
                     {% endif %}
                     <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
                         <label>Username</label>
-                        <input type="text" class="input-form" name="username" id="">
+                        <input type="text" class="input-form" name="username" id="" placeholder="Digite o username...">
                         <br>
                         <br>
                         <label>Senha</label>
-                        <input type="password" class="input-form" name="senha" id="">
+                        <input type="password" class="input-form" name="senha" id="" placeholder="Digite sua senha...">
                         <br>
                         <br>
                         <label>Confirmar senha</label>
                         <input type="password" class="input-form" name="confirmar_senha" id="">
                         <br>
                         <br>
-                        <input type="submit" value="Enviar" class="btn-cadastro">
+                        <input type="submit" value="Enviar" class="btn-cadastro"><a href="{% url 'login' %}" style="margin-left: 10px; text-decoration: none; color: black; padding: 11px;" class="btn-cadastro">Já possuo uma conta</a>
                         <br>
                         <br>
                         <br>

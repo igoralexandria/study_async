@@ -39,6 +39,8 @@ class FlashcardDesafio(models.Model):
 
 
 class Desafio(models.Model):
+    CHOICE_FIELDS = [('C', 'Concluído'), ( 'E','Em Andamento')]
+
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     titulo = models.CharField(max_length=100)
     categoria = models.ManyToManyField(Categoria)
@@ -47,6 +49,7 @@ class Desafio(models.Model):
         max_length=1, choices=Flashcard.DIFICULDADE_CHOICES
     )
     flashcards = models.ManyToManyField(FlashcardDesafio)
+    status = models.CharField(max_length=2, blank=True, null=True, choices=CHOICE_FIELDS)
 
     def __str__(self):
         return self.titulo

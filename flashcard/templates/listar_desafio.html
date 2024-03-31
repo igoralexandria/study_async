@@ -19,16 +19,24 @@
         <br>
         <div class="row">
             <div class="col-md">
-                <form action="}" method="GET">
+                <form action="{% url 'listar_desafio' %}" method="GET">                    
                 <label for="">Categoria</label>
+
                 <select name="categoria" class="form-select">
-                   
+                    <option value="">Todas as categorias</option>
+                    {% for categoria in categorias %}
+                        <option value="{{categoria.id}}">{{categoria}}</option>
+                    {% endfor %}
                 </select>
+
             </div>
             <div class="col-md">
                 <label for="">Dificuldade</label>
                 <select name="dificuldade" class="form-select">
-                    
+                    <option value="">Todas as dificuldades</option>
+                    {% for dificuldade in dificuldades %}
+                        <option value="{{dificuldade.0}}">{{dificuldade.1}}</option> <!--O zero e o 1 se refere ao índice do choices, ou seja, 0 para a letra e o 1 para a palavra, nesse caso-->
+                    {% endfor %}
                 </select>
             </div>
             <div class="col-md">
@@ -55,7 +63,7 @@
                             <th><a href="{% url 'desafio' desafio.id %}">{{desafio.id}}</a></th>
                             <td>{{desafio.titulo}}</td>
                             <td>{{desafio.get_dificuldade_display}}</td>
-                            <td>{{desafio.status}}</td>
+                            <td>{{desafio.get_status_display}}</td>
                         </tr>
                   {% endfor %}
                 </tbody>

@@ -61,3 +61,6 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/usuarios/login')
+
+def welcome(request):
+    return render(request, 'welcome.html')

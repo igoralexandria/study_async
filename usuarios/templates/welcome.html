@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Study Async</title>
+    <meta name="description" content="Free bootstrap template Atlas">
+    <link rel="icon" href="img/favicon.png" sizes="32x32" type="image/png">
+    <!-- custom.css -->
+    <link rel="stylesheet" href="{% static 'usuarios/css/custom.css' %}">
+    <!-- bootstrap.min.css -->
+    <link rel="stylesheet" href="{% static 'usuarios/css/bootstrap.min.css' %}">
+	<!-- font-awesome -->
+    <link rel="stylesheet" href="{% static 'usuarios/css/font-awesome.min.css' %}">
+    
+</head>
+
+<body>
+    <!-- banner -->
+    <div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url('{% static 'usuarios/img/banner-bk.jpg' %}');">
+        <div class="container text-center text-md-left">
+            <header>
+                <div class="row justify-content-between">
+                    <div class="col-1">
+                        
+                    </div>
+                    <div class="col-6 align-self-center text-right">
+                        <a href="{% url 'login' %}" class="btn font-weight-bold atlas-cta cta-green">Login</a>
+                    </div>
+                </div>
+            </header>
+            <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
+            	Bem-Vindo ao<br>
+            	Study Async
+            </h1>
+            <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
+                Sua nova plataforma de estudos online de forma assíncrona.
+            </p>
+            <a href="{% url 'cadastro' %}" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Cadastrar-se</a>
+        </div>
+    </div>
+    <!-- three-blcok -->
+    <div class="container my-3 py-2">
+        <h2 class="text-center font-weight-bold my-5">Sobre o projeto</h2>
+        <div class="row">
+            <div data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+                <img src="{% static 'usuarios/img/flash-cards.png' %}" alt="Anti-spam" class="mx-auto" style="width: 100px;">
+                <div style="margin-top: 15px;">
+                    <h4>Flashcard</h4>
+                    <p>Crie flashcard com a categoria e dificuldade desejada.</p>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+                <img src="{% static 'usuarios/img/struggle.png' %}" alt="Phishing Detect" class="mx-auto" style="width: 100px;">
+                <div style="margin-top: 15px;">
+                    <h4>Desafios</h4>
+                    <p>Inicie desafios de acordo com os flashcard gerados.</p>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+                <img src="{% static 'usuarios/img/dashboard.png' %}" alt="Smart Scan" class="mx-auto" style="width: 100px;">
+                <div style="margin-top: 15px;">
+                    <h4>Dashboards</h4>
+                    <p>Veja graficamente o seu desempenho dos desafios.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- copyright -->
+	<div class="jumbotron jumbotron-fluid" id="copyright">
+        <div class="container">
+            <div class="row justify-content-between">
+            	<div class="col-md-6 text-white align-self-center text-center text-md-left my-2">
+                    Desenvolvido por: Igor Alexandria
+                </div>
+                <div class="col-md-6 align-self-center text-center text-md-right my-2" id="social-media">
+                    
+                    <a href="https://github.com/igoralexandria" class="d-inline-block text-center ml-2" target="_blank">
+                    	<i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/1gor.alexandria/" class="d-inline-block text-center ml-2" target="_blank">
+                    	<i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/igoralexandria/" class="d-inline-block text-center ml-2" target="_blank">
+                    	<i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- AOS -->
+    <script src="{% static 'usuarios/js/aos.js' %}"></script>
+    <script>
+      AOS.init({
+      });
+    </script>
+</body>
+
+</html>
